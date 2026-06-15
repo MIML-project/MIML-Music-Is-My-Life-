@@ -7,9 +7,9 @@
 
 ---
 
-[시연 영상](https://youtu.be/vJ2oHwFWKb0)
 
-- [최종보고서](MIML_프로젝트_최종_결과_보고서.pdf)
+- [시연 영상](https://youtu.be/vJ2oHwFWKb0)
+- [최종 결과 보고서](MIML_프로젝트_최종_결과_보고서.pdf)
 - [최종발표자료](캡스톤디자인_MIML팀_최종발표자료.pdf)
 
 ---
