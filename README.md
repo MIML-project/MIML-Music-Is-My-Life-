@@ -69,7 +69,6 @@ frontend/
 | `POST` | `/api/feedback/satisfaction` | 좋아요/싫어요 피드백 |
 | `GET` | `/api/user/me` | 유저 프로필 조회 |
 | `POST` | `/api/spotify/import/liked` | Spotify 좋아요 곡 import |
-| `GET` | `/api/hello` | 서버 상태 확인 (인증 불필요) |
 
 ---
 
