@@ -59,28 +59,6 @@ frontend/
 
 ---
 
-## 핵심 기능
-
-### 1. 음악 데이터 파이프라인
-- Spotify에서 사용자의 좋아요 곡을 일괄 import
-- SoundNet(RapidAPI)으로 각 곡의 음향 수치(energy, happiness, danceability, acousticness, tempo) 분석 및 저장
-- Last.fm으로 아티스트별 장르 태그 수집
-- OpenAI `text-embedding-3-small`로 태그 벡터 생성
-
-### 2. AI 추천 알고리즘 (`SmartRecommendationService`)
-1. GPT-4o-mini가 자연어 입력을 분석해 오디오 피처 수치 + 장르 필터 추출
-2. 유저 청취 프로필과 지정 비율(profileRatio)로 블렌딩
-3. 오디오 범위 필터 + 태그 임베딩 코사인 유사도로 후보 풀 추출
-4. 장르 pre-filter (사용자가 장르를 명시한 경우에만 적용)
-5. 오디오 거리 점수 → 태그 커버리지 점수 순으로 최종 순위 결정
-6. 아티스트 중복 제한(최대 2곡/아티스트) + 가중 샘플링
-
-### 3. 피드백 기반 프로필 학습
-- 좋아요/싫어요 피드백으로 유저의 오디오 피처 프로필 점진적 업데이트
-- 무드 피드백으로 세부 분위기 선호도 반영
-
----
-
 ## API 엔드포인트
 
 모든 API는 Firebase Auth 토큰(`Authorization: Bearer <token>`) 필요.
@@ -137,7 +115,7 @@ cd backend
 
 #### 1. 백엔드 서버 주소 설정
 
-백엔드 서버 주소가 변경된 경우 아래 두 파일의 `BACKEND_URL`을 수정하세요.
+아래 두 파일의 `BACKEND_URL`을 수정한다.
 
 **`frontend/screens/HomeScreen.js`** (445번째 줄)
 ```js
@@ -163,21 +141,6 @@ npx expo start --android
 
 ---
 
-## 데이터베이스 스키마
-
-주요 테이블:
-
-| 테이블 | 설명 |
-|--------|------|
-| `music` | 곡 메타데이터 (title, artist, album, spotifyId, albumImageUrl) |
-| `audio_features` | 음향 수치 (energy, happiness, danceability, acousticness, tempo) |
-| `music_tags` | 커뮤니티 태그 + voteCount |
-| `artist_genres` | Last.fm 장르 데이터 |
-| `users` | Firebase UID 기반 유저 + 오디오 피처 프로필 |
-
-플레이리스트는 Firestore에 스냅샷으로 저장 (MySQL 변경에 독립적).
-
----
 
 ## 프론트엔드
 
