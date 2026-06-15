@@ -5,9 +5,7 @@
 > "요즘 좀 지쳐있어서 조용하고 따뜻한 노래 듣고 싶어"  
 > → 에너지 낮고 어쿠스틱한 감성의 곡들을 추천
 
-## 시연 영상
-
-[![MIML 시연 영상](https://img.youtube.com/vi/vJ2oHwFWKb0/0.jpg)](https://youtu.be/vJ2oHwFWKb0)
+## [시연 영상](https://youtu.be/vJ2oHwFWKb0)
 
 ---
 
