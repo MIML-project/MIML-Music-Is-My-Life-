@@ -125,3 +125,62 @@ cd backend
 | `users` | Firebase UID 기반 유저 + 오디오 피처 프로필 |
 
 플레이리스트는 Firestore에 스냅샷으로 저장 (MySQL 변경에 독립적).
+
+---
+
+## 프론트엔드
+
+### 기술 스택
+
+| 구분 | 기술 |
+|------|------|
+| Framework | React Native (Expo SDK 54) |
+| Language | JavaScript (ES2022) |
+| 상태 관리 | React Context API |
+| 네비게이션 | React Navigation (Bottom Tab + Stack) |
+| 인증 | Firebase Authentication |
+| DB | Firebase Firestore (커뮤니티 게시물, 플레이리스트) |
+| 음악 재생 | Spotify SDK 연동 |
+
+### 프로젝트 구조
+
+```
+frontend/
+├── App.js                        # 네비게이션 설정 (Stack + Bottom Tab)
+├── firebase.js                   # Firebase 초기화
+├── screens/                      # 화면 컴포넌트
+│   ├── HomeScreen.js             # AI 채팅 기반 음악 추천 메인 화면
+│   ├── LibraryScreen.js          # 보관함 (플레이리스트 목록)
+│   ├── FeedScreen.js             # 커뮤니티 피드
+│   ├── NowPlayingScreen.js       # 현재 재생 중인 곡 상세 화면
+│   ├── PlaylistDetailScreen.js   # 플레이리스트 상세
+│   ├── ProfileScreen.js          # 사용자 프로필 및 취향 분석
+│   └── LoginScreen.js            # 로그인 화면
+├── components/                   # 재사용 UI 컴포넌트
+│   ├── NowPlayingBar.js          # 하단 미니 플레이어 바
+│   ├── AddToPlaylistModal.js     # 플레이리스트 추가 모달
+│   ├── SaveAsPlaylistModal.js    # 새 플레이리스트 저장 모달
+│   └── Skeleton.js               # 로딩 스켈레톤 UI
+└── context/                      # 전역 상태 관리
+    ├── PlayerContext.js          # 재생 상태, 플레이리스트, 취향 프로필
+    ├── AuthContext.js            # Firebase 인증 상태
+    └── SpotifyContext.js         # Spotify 연동 및 재생 제어
+```
+
+### 주요 기능
+
+- **AI 채팅 UI**: 자연어로 상황을 입력하면 백엔드 추천 API를 호출하여 곡 목록을 채팅 버블 형태로 표시
+- **개인화 슬라이더**: `Now ↔ My Vibe` 슬라이더로 현재 기분과 평소 취향의 반영 비율(α) 실시간 조절
+- **Spotify 연동 재생**: 추천 곡을 Spotify SDK로 즉시 재생, 미니 플레이어 상시 표시
+- **보관함**: Liked Songs, Recently Played, 사용자 생성 플레이리스트 관리 (Firestore 동기화)
+- **커뮤니티**: 감상 로그 작성 및 피드 조회, 게시물 데이터가 추천 알고리즘 가중치에 반영
+
+### 로컬 실행 방법
+
+```bash
+cd frontend
+npm install
+npx expo start --android
+```
+
+> Expo Go 앱 또는 Android 에뮬레이터 필요
