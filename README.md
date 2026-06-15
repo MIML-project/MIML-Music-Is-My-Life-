@@ -171,7 +171,26 @@ cd backend
 - **보관함**: Liked Songs, Recently Played, 사용자 생성 플레이리스트 관리 (Firestore 동기화)
 - **커뮤니티**: 감상 로그 작성 및 피드 조회, 게시물 데이터가 추천 알고리즘 가중치에 반영
 
-### 로컬 실행 방법
+### 실행 방법
+
+#### 1. 백엔드 서버 주소 설정
+
+프론트엔드는 백엔드 API 서버 주소가 하드코딩되어 있습니다.  
+백엔드 서버 주소가 변경된 경우 아래 두 파일의 `BACKEND_URL`을 수정하세요.
+
+**`frontend/screens/HomeScreen.js`** (445번째 줄)
+```js
+const BACKEND_URL = 'http://백엔드_서버_IP:8080';
+```
+
+**`frontend/screens/FeedScreen.js`** (19번째 줄)
+```js
+const BACKEND_URL = 'http://백엔드_서버_IP:8080';
+```
+
+> 현재 기본값: `http://13.209.228.73:8080` (AWS EC2)
+
+#### 2. 패키지 설치 및 실행
 
 ```bash
 cd frontend
