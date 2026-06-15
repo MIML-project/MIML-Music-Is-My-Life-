@@ -34,6 +34,27 @@ backend/
     ├── repository/     # Spring Data JPA 레포지토리
     ├── Security/       # Firebase 인증 필터
     └── service/        # 핵심 비즈니스 로직
+
+frontend/
+├── App.js                        # 네비게이션 설정 (Stack + Bottom Tab)
+├── firebase.js                   # Firebase 초기화
+├── screens/                      # 화면 컴포넌트
+│   ├── HomeScreen.js             # AI 채팅 기반 음악 추천 메인 화면
+│   ├── LibraryScreen.js          # 보관함 (플레이리스트 목록)
+│   ├── FeedScreen.js             # 커뮤니티 피드
+│   ├── NowPlayingScreen.js       # 현재 재생 중인 곡 상세 화면
+│   ├── PlaylistDetailScreen.js   # 플레이리스트 상세
+│   ├── ProfileScreen.js          # 사용자 프로필 및 취향 분석
+│   └── LoginScreen.js            # 로그인 화면
+├── components/                   # 재사용 UI 컴포넌트
+│   ├── NowPlayingBar.js          # 하단 미니 플레이어 바
+│   ├── AddToPlaylistModal.js     # 플레이리스트 추가 모달
+│   ├── SaveAsPlaylistModal.js    # 새 플레이리스트 저장 모달
+│   └── Skeleton.js               # 로딩 스켈레톤 UI
+└── context/                      # 전역 상태 관리
+    ├── PlayerContext.js          # 재생 상태, 플레이리스트, 취향 프로필
+    ├── AuthContext.js            # Firebase 인증 상태
+    └── SpotifyContext.js         # Spotify 연동 및 재생 제어
 ```
 
 ---
@@ -141,31 +162,6 @@ cd backend
 | 인증 | Firebase Authentication |
 | DB | Firebase Firestore (커뮤니티 게시물, 플레이리스트) |
 | 음악 재생 | Spotify SDK 연동 |
-
-### 프로젝트 구조
-
-```
-frontend/
-├── App.js                        # 네비게이션 설정 (Stack + Bottom Tab)
-├── firebase.js                   # Firebase 초기화
-├── screens/                      # 화면 컴포넌트
-│   ├── HomeScreen.js             # AI 채팅 기반 음악 추천 메인 화면
-│   ├── LibraryScreen.js          # 보관함 (플레이리스트 목록)
-│   ├── FeedScreen.js             # 커뮤니티 피드
-│   ├── NowPlayingScreen.js       # 현재 재생 중인 곡 상세 화면
-│   ├── PlaylistDetailScreen.js   # 플레이리스트 상세
-│   ├── ProfileScreen.js          # 사용자 프로필 및 취향 분석
-│   └── LoginScreen.js            # 로그인 화면
-├── components/                   # 재사용 UI 컴포넌트
-│   ├── NowPlayingBar.js          # 하단 미니 플레이어 바
-│   ├── AddToPlaylistModal.js     # 플레이리스트 추가 모달
-│   ├── SaveAsPlaylistModal.js    # 새 플레이리스트 저장 모달
-│   └── Skeleton.js               # 로딩 스켈레톤 UI
-└── context/                      # 전역 상태 관리
-    ├── PlayerContext.js          # 재생 상태, 플레이리스트, 취향 프로필
-    ├── AuthContext.js            # Firebase 인증 상태
-    └── SpotifyContext.js         # Spotify 연동 및 재생 제어
-```
 
 ### 주요 기능
 
