@@ -9,6 +9,7 @@
 
 ## 기술 스택
 
+### 백엔드
 | 구분 | 기술 |
 |------|------|
 | Language | Kotlin |
@@ -18,6 +19,17 @@
 | 플레이리스트 저장 | Firestore |
 | 배포 | AWS EC2 (Amazon Linux 2023, Java 17) |
 | 외부 API | Spotify, Last.fm, OpenAI (GPT-4o-mini, text-embedding-3-small), SoundNet (RapidAPI) |
+
+### 프론트엔드
+| 구분 | 기술 |
+|------|------|
+| Framework | React Native (Expo SDK 54) |
+| Language | JavaScript (ES2022) |
+| 상태 관리 | React Context API |
+| 네비게이션 | React Navigation (Bottom Tab + Stack) |
+| 인증 | Firebase Authentication |
+| DB | Firebase Firestore (커뮤니티 게시물, 플레이리스트) |
+| 음악 재생 | Spotify SDK 연동 |
 
 ---
 
@@ -141,18 +153,6 @@ npx expo start --android
 
 
 ## 프론트엔드
-
-### 기술 스택
-
-| 구분 | 기술 |
-|------|------|
-| Framework | React Native (Expo SDK 54) |
-| Language | JavaScript (ES2022) |
-| 상태 관리 | React Context API |
-| 네비게이션 | React Navigation (Bottom Tab + Stack) |
-| 인증 | Firebase Authentication |
-| DB | Firebase Firestore (커뮤니티 게시물, 플레이리스트) |
-| 음악 재생 | Spotify SDK 연동 |
 
 ### 주요 기능
 
